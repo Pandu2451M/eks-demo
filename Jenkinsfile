@@ -19,7 +19,7 @@ pipeline {
 
         ECR_URI = "${ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${REPOSITORY}"
 
-        EKS_CLUSTER = 'demo-cluster'
+        EKS_CLUSTER = 'demo-cluster-1'
 
         SERVICE_NAME = 'frontend'
 
