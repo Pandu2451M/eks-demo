@@ -11,7 +11,7 @@ pipeline {
 
         AWS_REGION = 'ap-south-1'
 
-        ACCOUNT_ID = '239857123300'
+        ACCOUNT_ID = '010928219854'
 
         REPOSITORY = 'frontend'
 
