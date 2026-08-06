@@ -1,16 +1,17 @@
-# React + Vite
+# EKS Cluster & Jenkins Setup
+Step-by-step record of how the EKS cluster and the self-hosted Jenkins server were set up for this project.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Step 1: Create EKS cluster and 
+eksctl create cluster \
+  --name demo-cluster-1 \
+  --region ap-south-1 \
+  --node-type t2.medium \
+  --nodes-min 2 \
+  --nodes-max 2 \
+  --zones ap-south-1a,ap-south-1b
+  This provisions the EKS control plane plus a managed node group of 2 t2.medium nodes spread across two availability zones (ap-south-1a, ap-south-1b).
 
-Currently, two official plugins are available:
+  Step 2: Launch an EC2 instance for jenkins
+  Spin up a separate EC2 instance to host Jenkins — this is the machine the CI/CD pipeline will run from.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+  
