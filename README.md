@@ -45,4 +45,36 @@ Unlock Jenkins using the initial admin password:
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 Paste the password into the setup wizard, then choose Install suggested plugins.
+### Give the Jenkins User Sudo Access
+```bash
+sudo visudo
+jenkins ALL=(ALL) NOPASSWD:ALL
+```
+Switch into the jenkins user to continue setup as that user:
+```bash
+sudo su - jenkins
+```
+### Install Docker, Node.js, and npm
+```bash
+sudo apt install docker nodejs npm
+```
+### Install kubectl
+```bash
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+```
+Verify:
+```bash
+kubectl version --client
+```
+### Let the jenkins User Run Docker Commands
+```bash
+sudo chmod 777 /var/run/docker.sock
+```
+### Install the AWS CLI (v2)
+```bash
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+```
   
