@@ -19,7 +19,7 @@ Step-by-step record of how the EKS cluster and the self-hosted Jenkins server we
 ```bash
 sudo apt install fontconfig openjdk-21-jre
 ```
-### Install jenkins(LTS)
+### Install Jenkins(LTS)
 ```bash
 sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
   https://pkg.jenkins.io/debian-stable/jenkins.io-2026.key
@@ -34,4 +34,15 @@ Enable and start the sevice:
 sudo systemctl enable jenkins
 sudo systemctl start jenkins
 ```
+### Open Jenkins to the Browser
+In the EC2 instance's security group, add an inbound rule for port 8080.
+Browse to:
+```bash
+http://<EC2_PUBLIC_IP>:8080
+```
+Unlock Jenkins using the initial admin password:
+```bash
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+Paste the password into the setup wizard, then choose Install suggested plugins.
   
