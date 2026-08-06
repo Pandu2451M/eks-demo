@@ -16,5 +16,7 @@ Step-by-step record of how the EKS cluster and the self-hosted Jenkins server we
   Spin up a separate EC2 instance to host Jenkins — this is the machine the CI/CD pipeline will run from.
 
   ### Install Java (required by Jenkins)
-
+```bash
+sudo apt install fontconfig openjdk-21-jre
+```
   
