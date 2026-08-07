@@ -10,21 +10,23 @@ Step-by-step record of how the EKS cluster and the self-hosted Jenkins server we
         --nodes-min 2 \
         --nodes-max 2 \
         --zones ap-south-1a,ap-south-1b
-verify:
+### Verify:
         kubectl get nodes
-Update kubeconfig
+        
+### Update kubeconfig
         aws eks create-access-entry \
-  --cluster-name cluster-name \
-  --principal-arn arn:aws:iam::<account_id>:role/EC2IamRole \
-  --type STANDARD \
-  --region ap-south-1
+        --cluster-name cluster-name \
+        --principal-arn arn:aws:iam::<account_id>:role/EC2IamRole \
+        --type STANDARD \
+        --region ap-south-1
   
-  aws eks associate-access-policy \
-  --cluster-name cluster-name \
-  --principal-arn arn:aws:iam::<accou_id>:role/EC2IamRole \
-  --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy \
-  --access-scope type=cluster \
-  --region ap-south-1
+          aws eks associate-access-policy \
+          --cluster-name cluster-name \
+          --principal-arn arn:aws:iam::<accou_id>:role/EC2IamRole \
+          --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy \
+          --access-scope type=cluster \
+          --region ap-south-1
+          
   This provisions the EKS control plane plus a managed node group of 2 t2.medium nodes spread across two availability zones (ap-south-1a, ap-south-1b).
 
   ## Step 2: Launch an EC2 instance for jenkins.
