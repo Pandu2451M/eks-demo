@@ -130,6 +130,36 @@ helm version
 ``` bash
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 ```
+## Step 5: Installing AWS Load Balancer Controller
+### Associate OIDC Provider:
+``` bash
+eksctl utils associate-iam-oidc-provider \
+--cluster frontend-cluster \
+--approve
+```
+### Download IAM Policy:
+``` bash
+curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/main/docs/install/iam_policy.json
+```
+### Create IAM Policy:
+``` bash
+aws iam create-policy \
+--policy-name AWSLoadBalancerControllerIAMPolicy \
+--policy-document file://iam_policy.json
+```
+### Create IAM Service Account:
+```bash
+eksctl create iamserviceaccount
+```
+### Installing Controller:
+``` bash
+helm install aws-load-balancer-controller \
+eks/aws-load-balancer-controller
+```
+### Verifying:
+``` bash
+kubectl get deployment -n kube-system
+```
 
 
 
