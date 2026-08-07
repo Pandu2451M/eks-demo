@@ -150,7 +150,13 @@ aws iam create-policy \
 ```
 ### Create IAM Service Account:
 ```bash
-eksctl create iamserviceaccount
+eksctl create iamserviceaccount \
+--cluster=eks-cluster \
+--namespace=kube-system \
+--name=aws-load-balancer-controller \
+--role-name AmazonEKSLoadBalancerControllerRole \
+--attach-policy-arn=arn:aws:iam::010928219854:policy/AWSLoadBalancerControllerIAMPolicy \
+--approve
 ```
 ### Installing Controller:
 ``` bash
