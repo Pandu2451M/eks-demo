@@ -97,22 +97,22 @@ sudo ./aws/install
 ## Step 3: Amazon ECR
 ### login:
 ``` bash
-        aws ecr get-login-password \
-        | docker login \
-        --username AWS \
-        --password-stdin ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com
+aws ecr get-login-password \
+| docker login \
+--username AWS \
+--password-stdin ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com
 ```
 ### Build Image:
 ``` bash
-        docker build -t frontend .
+docker build -t frontend .
 ```
 ### Tag Image:
 ``` bash
-        docker tag frontend:latest ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com/frontend:latest
+docker tag frontend:latest ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com/frontend:latest
 ```
 ### Push Image
 ``` bash
-        docker push ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com/frontend:latest
+docker push ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com/frontend:latest
 ```
 
 ## Step 4: Installing Helm
