@@ -124,6 +124,10 @@ docker push 010928219854.dkr.ecr.ap-south-1.amazonaws.com/frontend:latest
 
 ## Step 4: Installing Helm
 ### Verify it installed:
+### Install command:
+``` bash
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+```
 ``` bash
 helm version
 ```
@@ -131,10 +135,6 @@ helm version
 ``` bash
 helm repo add eks https://aws.github.io/eks-charts
 helm repo update
-```
-### Install command:
-``` bash
-curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 ```
 ## Step 5: Installing AWS Load Balancer Controller
 ### Associate OIDC Provider:
