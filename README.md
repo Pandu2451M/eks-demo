@@ -5,7 +5,7 @@ Step-by-step record of how the EKS cluster and the self-hosted Jenkins server we
 ## Step 1: Create EKS cluster
 ``` bash
 eksctl create cluster \
---name demo-cluster \
+--name eks-cluster \
 --region ap-south-1 \
 --nodegroup-name workers \
 --node-type t3.medium \
@@ -19,14 +19,14 @@ kubectl get nodes
 ### Update kubeconfig
 ``` bash
 aws eks create-access-entry \
---cluster-name cluster-name \
---principal-arn arn:aws:iam::<account_id>:role/EC2IamRole \
+--cluster-name eks-cluster \
+--principal-arn arn:aws:iam::<account_id>:role/eksiamrole \
 --type STANDARD \
 --region ap-south-1
   
 aws eks associate-access-policy \
---cluster-name cluster-name \
---principal-arn arn:aws:iam::<accou_id>:role/EC2IamRole \
+--cluster-name eks-cluster \
+--principal-arn arn:aws:iam::<accou_id>:role/eksiamrole \
 --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy \
 --access-scope type=cluster \
 --region ap-south-1
@@ -134,7 +134,7 @@ curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 ### Associate OIDC Provider:
 ``` bash
 eksctl utils associate-iam-oidc-provider \
---cluster frontend-cluster \
+--cluster eks-cluster \
 --approve
 ```
 ### Download IAM Policy:
