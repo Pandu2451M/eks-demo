@@ -94,7 +94,7 @@ unzip awscliv2.zip
 sudo ./aws/install
 ```
 
-## Step 3: Amazzon ECR
+## Step 3: Amazon ECR
 ### login:
         aws ecr get-login-password \
         | docker login \
