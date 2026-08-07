@@ -127,6 +127,11 @@ docker push 010928219854.dkr.ecr.ap-south-1.amazonaws.com/frontend:latest
 ``` bash
 helm version
 ```
+### Add the Helm Repo:
+``` bash
+helm repo add eks https://aws.github.io/eks-charts
+helm repo update
+```
 ### Install command:
 ``` bash
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
