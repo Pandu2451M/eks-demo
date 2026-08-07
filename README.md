@@ -37,7 +37,7 @@ aws eks associate-access-policy \
   ## 🖥️ Step 2: Launch an EC2 instance for jenkins.
   Spin up a separate EC2 instance to host Jenkins — this is the machine the CI/CD pipeline will run from.
 
-  ### ☕ Install Java (required by Jenkins)
+  ### Install Java (required by Jenkins)
 ```bash
 sudo apt install fontconfig openjdk-21-jre
 ```
@@ -101,7 +101,7 @@ unzip awscliv2.zip
 sudo ./aws/install
 ```
 
-## Step 3: Amazon ECR
+## 📦 Step 3: Amazon ECR
 ### login:
 ``` bash
 aws ecr get-login-password \
@@ -122,7 +122,7 @@ docker tag frontend:latest 010928219854.dkr.ecr.ap-south-1.amazonaws.com/fronten
 docker push 010928219854.dkr.ecr.ap-south-1.amazonaws.com/frontend:latest
 ```
 
-## Step 4: Installing Helm
+## Step 4: ⛵ Installing Helm
 ### Verify it installed:
 ### Install command:
 ``` bash
@@ -137,7 +137,7 @@ helm version
 helm repo add eks https://aws.github.io/eks-charts
 helm repo update
 ```
-## Step 5: Installing AWS Load Balancer Controller
+## Step 5: ⚖️ Installing AWS Load Balancer Controller
 ### Associate OIDC Provider:
 ``` bash
 eksctl utils associate-iam-oidc-provider \
