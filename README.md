@@ -122,6 +122,15 @@ docker push ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com/frontend:latest
 ```
 
 ## Step 4: Installing Helm
+### Verify it installed:
+``` bash
+helm version
+```
+### Install command:
+``` bash
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+```
+
 
 
 
