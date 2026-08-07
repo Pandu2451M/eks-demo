@@ -78,7 +78,7 @@ sudo su - jenkins
 ```
 ### Install Docker, Node.js, and npm
 ```bash
-sudo apt install docker nodejs npm
+sudo apt install docker.io nodejs npm
 ```
 ### Install kubectl
 ```bash
@@ -106,7 +106,7 @@ sudo ./aws/install
 aws ecr get-login-password \
 | docker login \
 --username AWS \
---password-stdin ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com
+--password-stdin 010928219854.dkr.ecr.ap-south-1.amazonaws.com
 ```
 ### Build Image:
 ``` bash
