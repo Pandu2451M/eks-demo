@@ -128,6 +128,7 @@ docker push 010928219854.dkr.ecr.ap-south-1.amazonaws.com/frontend:latest
 ``` bash
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 ```
+### Verify:
 ``` bash
 helm version
 ```
@@ -165,8 +166,11 @@ eksctl create iamserviceaccount \
 ```
 ### Installing Controller:
 ``` bash
-helm install aws-load-balancer-controller \
-eks/aws-load-balancer-controller
+helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
+-n kube-system \
+--set clusterName=eks-cluster \
+--set serviceAccount.create=false \
+--set serviceAccount.name=aws-load-balancer-controller
 ```
 ### Verifying:
 ``` bash
