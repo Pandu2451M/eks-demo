@@ -20,13 +20,13 @@ kubectl get nodes
 ``` bash
 aws eks create-access-entry \
 --cluster-name eks-cluster \
---principal-arn arn:aws:iam::<account_id>:role/eksiamrole \
+--principal-arn arn:aws:iam::010928219854:role/eksiamrole \
 --type STANDARD \
 --region ap-south-1
   
 aws eks associate-access-policy \
 --cluster-name eks-cluster \
---principal-arn arn:aws:iam::<accou_id>:role/eksiamrole \
+--principal-arn arn:aws:iam::010928219854:role/eksiamrole \
 --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy \
 --access-scope type=cluster \
 --region ap-south-1
