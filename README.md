@@ -93,4 +93,25 @@ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip
 unzip awscliv2.zip
 sudo ./aws/install
 ```
+
+## Step 3: Amazzon ECR
+### login:
+        aws ecr get-login-password \
+        | docker login \
+        --username AWS \
+        --password-stdin ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com
+### Build Image:
+        docker build -t frontend .
+### Tag Image:
+        docker tag frontend:latest ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com/frontend:latest
+### Push Image
+        docker push ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com/frontend:latest
+
+## Step 4: Installing Helm
+
+
+
+
+
+
   
