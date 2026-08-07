@@ -2,7 +2,7 @@
 # EKS Cluster & Jenkins Setup
 Step-by-step record of how the EKS cluster and the self-hosted Jenkins server were set up for this project.
 
-## Step 1: Create EKS cluster
+## 🚀 Step 1: Create EKS cluster
 ``` bash
 eksctl create cluster \
 --name eks-cluster \
@@ -34,10 +34,10 @@ aws eks associate-access-policy \
           
   This provisions the EKS control plane plus a managed node group of 2 t3.medium nodes spread across two availability zones (ap-south-1).
 
-  ## Step 2: Launch an EC2 instance for jenkins.
+  ## 🖥️ Step 2: Launch an EC2 instance for jenkins.
   Spin up a separate EC2 instance to host Jenkins — this is the machine the CI/CD pipeline will run from.
 
-  ### Install Java (required by Jenkins)
+  ### ☕ Install Java (required by Jenkins)
 ```bash
 sudo apt install fontconfig openjdk-21-jre
 ```
