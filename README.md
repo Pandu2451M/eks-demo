@@ -91,7 +91,8 @@ kubectl version --client
 ```
 ### Let the jenkins User Run Docker Commands
 ```bash
-sudo chmod 777 /var/run/docker.sock
+sudo usermod -aG docker jenkins
+sudo systemctl restart jenkins
 ```
 ### Install the AWS CLI (v2)
 ```bash
@@ -114,11 +115,11 @@ docker build -t frontend .
 ```
 ### Tag Image:
 ``` bash
-docker tag frontend:latest ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com/frontend:latest
+docker tag frontend:latest 010928219854.dkr.ecr.ap-south-1.amazonaws.com/frontend:latest
 ```
 ### Push Image
 ``` bash
-docker push ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com/frontend:latest
+docker push 010928219854.dkr.ecr.ap-south-1.amazonaws.com/frontend:latest
 ```
 
 ## Step 4: Installing Helm
