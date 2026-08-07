@@ -4,12 +4,11 @@ Step-by-step record of how the EKS cluster and the self-hosted Jenkins server we
 
 ## Step 1: Create EKS cluster
         eksctl create cluster \
-        --name demo-cluster-1 \
+        --name demo-cluster \
         --region ap-south-1 \
-        --node-type t2.medium \
-        --nodes-min 2 \
-        --nodes-max 2 \
-        --zones ap-south-1a,ap-south-1b
+        --nodegroup-name workers \
+        --node-type t3.medium \
+        --nodes 2
 ### Verify:
         kubectl get nodes
         
