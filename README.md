@@ -17,13 +17,16 @@ kubectl get nodes
 ```
         
 ### 🔐 Grant IAM Access to the Cluster
+### Command 1: Create Access Entry
 ``` bash
 aws eks create-access-entry \
 --cluster-name eks-cluster \
 --principal-arn arn:aws:iam::010928219854:role/eksiamrole \
 --type STANDARD \
 --region ap-south-1
-  
+```
+### Command 2: Associate Access Policy
+```bash
 aws eks associate-access-policy \
 --cluster-name eks-cluster \
 --principal-arn arn:aws:iam::010928219854:role/eksiamrole \
